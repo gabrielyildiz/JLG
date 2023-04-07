@@ -1,0 +1,67 @@
+<%- include('./add/header.ejs') %>
+  <div class="offers">
+    <div class="slideshow-container">
+      <!-- Slideshow container -->
+      <% offer.forEach(offers=> { %>
+        <div class="mySlides fade">
+          <img id="offerPicture" src="<%= offers.offerPicture %>">
+
+        </div>
+
+        <div class="mySlides fade">
+
+          <img id="offerPicture" src="<%= offers.offerPicture %>">
+
+        </div>
+
+        <div class="mySlides fade">
+
+          <img id="offerPicture" src="<%= offers.offerPicture %>">
+        </div>
+        <% })%>
+          <!-- Script that holds function that displays a slideshow of offers on the firstpage -->
+          <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) { slideIndex = 1 }
+              slides[slideIndex - 1].style.display = "block";
+              setTimeout(showSlides, 5000); // Change image every 2 seconds
+            }
+
+          </script>
+    </div>
+  </div>
+  <div class="topFive">
+    <% product.forEach(products=> { %>
+      <a href="/<%= products.productName %>">
+        <img id="productPicture" src="<%= products.productPicture %>">
+      </a>
+      <% })%>
+  </div>
+  <div class="infoContainer">
+    <div class="productInfo">
+      <h4>Info</h4>
+
+      <p>Vi har många olika kosttillskott där du kan välja det som passar bäst för dig.
+        Det handlar först och främst om att veta vilken målsättning du har. Vill du öka din allmänhälsa kan grunden vara
+        att satsa på några olika vitaminer, mineraler och omega-3.
+        Vill du bygga muskler så finns det mycket du kan hjälpa kroppen med genom att tillföra ett extra
+        proteintillskott.
+        Vi hoppas du ska hitta det du söker här hos oss och vi hjälper gärna till med att guida dig med vår kunskap.</p>
+    </div>
+    <div class="companyInfo">
+      <h4>Om oss</h4>
+
+      <p>J.L.G är ett litet företag som tillverkar våra egna kosttillskott. Vi har en butik mitt i stan i Örebro och har
+        nu valt att expandera genom denna webbshop!
+        Har ni några frågor eller funderingar kan ni kontakta oss på info@jlg.se </p>
+    </div>
+  </div>

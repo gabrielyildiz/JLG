@@ -1,0 +1,37 @@
+{
+  "name": "j.l.g",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Controller/config.js",
+  "scripts": {
+    "start": "nodemon "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linneafolkesson/J.L.G.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linneafolkesson/J.L.G/issues"
+  },
+  "homepage": "https://github.com/linneafolkesson/J.L.G#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.3.1",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.0.0",
+    "stripe": "^8.220.0"
+  }
+}

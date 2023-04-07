@@ -1,0 +1,9 @@
+<%- include('./add/header.ejs') %>
+    <h2>Lägg till erbjudande</h2>
+    <form action="/addOffers" method="post" enctype="multipart/form-data">
+        <!-- Uses the method post to send the data to the database -->
+        <label for="picture" id="pictureLabel">Lägg till en bild med ett erbjudande som kommer att visas på
+            startsidan</label>
+        <input type="file" id="pictureUpload" name="picture" accept="image/*">
+        <button type="submit" id="btnAddOffer">Lägg till erbjudande</button>
+    </form>

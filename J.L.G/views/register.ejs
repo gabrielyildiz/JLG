@@ -1,0 +1,35 @@
+<%- include('./add/header.ejs') %>
+
+    <div class="registerNewCustomer">
+        <% if(typeof alert !='undefined' ) { %>
+            <% alert.forEach(function(error) { %>
+                <div class="alert alert-warning alert-dismissable fade show" role="alert">
+                    <%= error.msg %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <% }) %>
+                    <% } %>
+                        <form action="/register" method="post" novalidate>
+                            <!-- Uses the method post to send the data to the database -->
+                            <label for="name" id="nameLabel">Namn</label>
+                            <input type="name" name="nameIn" id="name" required>
+                            <label for="phone" id="phoneLabel">Telefonnummer</label>
+                            <input type="tel" name="phoneNr" id="phone" required>
+                            <label for="email" id="emailLabel">Epost</label>
+                            <input type="email" name="mail" id="email" required>
+                            <label for="username" id="usernameLabel">Användarnamn</label>
+                            <input type="name" name="userName" id="username" required>
+                            <label for="address" id="addressLabel">Adress</label>
+                            <input type="address" name="address" id="address" required>
+                            <label for="password1" id="password1Label">Lösenord (Ange minst 6 tecken)</label>
+                            <input type="password" name="password" id="password1" required>
+                            <label for="password2" id="password2Label">Repetera lösenord</label>
+                            <input type="password" name="password2" id="password2" required>
+                            <input type="checkbox" id="approve"> <label for="approve" id="approveLabel"
+                                aria-required="true"> Jag godkänner butikens köpvillkor</label>
+                            <button type="submit" id="registerMeButton">Registrera mig</button>
+                            <!-- Register buttom -->
+                        </form>
+    </div>

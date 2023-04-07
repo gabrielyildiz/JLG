@@ -1,0 +1,27 @@
+<%- include('./add/header.ejs') %>
+    <h2>Lägg till ny produkt</h2><br>
+    <div class="addNewProduct">
+        <form action="/admin" method="post" enctype="multipart/form-data">
+            <!-- Uses the method post to send the data to the database -->
+            <label for="name" id="productNameLabel">Namn</label>
+            <input type="text" name="productName" id="productName" required>
+            <label for="price" id="productPriceLabel">Pris</label>
+            <input type="text" name="productPrice" id="productPrice" required>
+            <label for="productCategory" id="productCategoryLabel">Välj en kategori</label>
+            <select name="productCategory" id="productCategory" required>
+                <option value="proteinPowder">Proteinpulver</option>
+                <option value="vitamins">Vitaminer</option>
+                <option value="fattyAcids">Fettsyror</option>
+                <option value="aminoAcids">Aminosyror</option>
+            </select>
+            <label for="description" id="productDescriptionLabel">Produktbeskrivning</label>
+            <input type="text" name="productDescription" id="productDescription" required>
+            <label for="content" id="productContentLabel">Innehåll</label>
+            <input type="text" name="productContent" id="productContent" required>
+            <label for="img" id="pictureLabel">Ladda upp en bild:</label>
+            <input type="file" id="pictureUpload" name="picture" accept="image/*" required>
+            <button type="submit" id="btnPreviewProduct">Förhandsgranska</button>
+            <button type="submit" id="btnAddProduct">Lägg till produkt</button>
+        </form>
+        <a href="./addOffers">Lägg till erbjudanden</a>
+    </div>

@@ -1,0 +1,15 @@
+<%- include('./add/header.ejs') %>
+    <div class="listProducts">
+        <h2 id="allProductsHeader">Alla produkter</h2>
+        <div class="listProductsByCategory">
+            <% product.forEach(function(products) { %>
+                <div class="listWithProductsContainer">
+                    <a href="/<%= products.productName %>">
+                        <img width="50" length="50" id="productPictureforEachProduct"
+                            src="<%= products.productPicture %>">
+                        <%= products.productName %>
+                    </a>
+                </div>
+                <% }); %>
+        </div>
+    </div>

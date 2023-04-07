@@ -1,0 +1,75 @@
+<%- include('./add/header.ejs') %>
+    <h2>Din varukorg</h2>
+    <div class="shoppingCartContainer">
+        <% if (typeof cart !=='undefined' ) { %>
+            <% var total=0; %>
+                <% cart.forEach(function(product) { %>
+
+                    <% var sub=product.qty * product.productPrice; %>
+                        <% total +=sub %>
+                            <div class="shoppingCart">
+                                <div class="itemInShoppingCart">
+                                    <label id="nameProduct" name="name"> Namn: <%= product.productName %> </label>
+                                    <!-- Div that holds the input field and the buttons to increment and decrement the amount of products you want -->
+                                    <label id="amountProduct"> Antal: <%= product.qty %> </label>
+                                    <label id="priceProduct" name="amount"> Totalt: <%= sub %> </label>
+                                </div>
+                                <div class="inStorageContainer">
+                                    <label id="inStorage">Lagervara: Levereras inom 2-5 arbetsdagar</label>
+                                </div>
+                            </div>
+
+                            <% }) %>
+                                <div class="discountCode">
+                                    <form action="" id="formDiscountCode">
+                                        <input type="text" id="inputDiscountCode" name="inputDiscountCode"
+                                            placeholder="Skriv in rabattkod här">
+                                        <input type="submit" id="addDiscountCode" value="Lägg till">
+                                    </form>
+                                </div>
+                                <div class="totalAmountContainer">
+                                    <label name="total" id="totalAmount">Totalt hela varukorgen: <%= total %> </label>
+                                </div>
+    </div>
+    </div>
+    <% if (typeof user !=='undefined' ) { %>
+        <div class="stripeButton">
+            <form action="payment" method="POST">
+                <script src="//checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="<%= key %>"
+                    data-amount="<%= total * 100 %>" data-currency="sek" data-name="<%= user.name %>"
+                    data-adress="<%= total * 100 %> " data-description="Slutför ditt köp" data-locale="auto">
+                    </script>
+            </form>
+        </div>
+        <% } else { %>
+            <span id="createAccountAndFinishPayment"> Slutför beställning och skapa konto
+            </span>
+            <form action="paymentWithoutLogin" method="POST">
+                <label for="name" id="nameLabel">Namn</label>
+                <input type="name" name="nameIn" id="name" required>
+                <label for="phone" id="phoneLabel">Telefonnummer</label>
+                <input type="tel" name="phoneNr" id="phone" required>
+                <label for="email" id="emailLabel">Epost</label>
+                <input type="email" name="mail" id="email" required>
+                <label for="username" id="usernameLabel">Användarnamn</label>
+                <input type="name" name="userName" id="username" required>
+                <label for="address" id="addressLabel">Adress</label>
+                <input type="address" name="address" id="address" required>
+                <label for="password1" id="password1Label">Lösenord (Ange minst 6
+                    tecken)</label>
+                <input type="password" name="password" id="password1" required>
+                <label for="password2" id="password2Label">Repetera lösenord</label>
+                <input type="password" name="password2" id="password2" required>
+                <input type="checkbox" id="approve"> <label for="approve" id="approveLabel" aria-required="true"> Jag
+                    godkänner butikens köpvillkor</label>
+                <script src="//checkout.stripe.com/v3/checkout.js" class="stripe-button" data-key="<%= key %>"
+                    data-amount="<%= total * 100 %>" data-currency="sek" data-name="" data-adress="<%= total * 100 %> "
+                    data-description="Slutför ditt köp" data-locale="auto">
+                    </script>
+            </form>
+            <% } %>
+                <!-- Increment and decrement function so that the value in the field where you choose an amount goes up and down -->
+                <% } else { %>
+                    <p id="cartEmptyMessage">Din varukorg är tom</p>
+
+                    <% } %>

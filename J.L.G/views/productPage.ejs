@@ -1,0 +1,40 @@
+<%- include('./add/header.ejs') %>
+
+    <div class="productPage">
+        <img id="productPictureDisplay" src="<%= product.productPicture %>">
+    </div>
+    <div class="productNameAndPrice">
+        <label id="productNameDisplay">
+            <%= product.productName %>
+        </label>
+        <label id="productPriceDisplay" name="productprice">
+            <%= product.productPrice %>
+        </label>
+    </div>
+
+    <div class="productPageDescription">
+        <span style="font-weight: bold; text-decoration:underline">Produktbeskrivning</span>
+        <br>
+        <br>
+        <%= product.productDescription %>
+    </div>
+    <div class="addProductButtonContainer">
+        <button id="addProductButton"> <a href="/shoppingCart/<%= product.productName %>">Lägg till i
+                varukorgen</a></button>
+    </div>
+
+    <!-- Div that holds buttons that shows content and reviews -->
+    <div class="showContentAndReviewsButtons">
+        <button id="showContent" onclick="displayContent()">Innehåll</button>
+    </div>
+
+    <div class="showContentAndReviews">
+        <textarea id="displayReviewsContent" rows="10" cols="30" value=''> </textarea>
+    </div>
+
+    <!-- Increment and decrement function so that the value in the field where you choose an amount goes up and down -->
+    <script>
+        function displayContent() {
+            document.getElementById('displayReviewsContent').value = '<%= product.productContent %> '
+        }
+    </script>

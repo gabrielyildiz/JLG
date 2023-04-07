@@ -1,0 +1,37 @@
+<%- include('./add/header.ejs') %>
+    <div class="userInformation">
+        <h2>Användaruppgifter</h2>
+        <% if (typeof user !=='undefined' && user !==null ) { %>
+            <form action="userUpdate/?_method=PUT" method="POST">
+                <label for="nameProfilePage" id="nameLabelProfilePage">Namn</label>
+                <input type="name" name="nameProfilePage" id="nameProfilePage" placeholder="<%= user.name %> ">
+                <label for="phoneNrProfilePage" id="phoneLabelProfilePage">Telefonnummer</label>
+                <input type="tel" name="phoneNrProfilePage" id="phoneNrProfilePage"
+                    placeholder="<%= user.phoneNumber %>">
+                <label for="emailProfilePage" id="emailLabelProfilePage">Epost</label>
+                <input type="email" name="emailProfilePage" id="emailProfilePage" placeholder="<%= user.email %>">
+                <label for="usernameProfilePage" id="usernameLabelProfilePage">Användarnamn</label>
+                <input type="name" name="usernameProfilePage" id="usernameProfilePage"
+                    placeholder="<%= user.username %>">
+                <label for="passwordProfilePage" id="passwordLabelProfilePage">Lösenord</label>
+                <input type="password" name="passwordProfilePage" id="passwordProfilePage" placeholder="********">
+                <label for="passwordProfilePage" id="passwordLabelProfilePage">Adress</label>
+                <input type="address" name="addressProfilePage" id="passwordProfilePage"
+                    placeholder="<%= user.address %>">
+            </form>
+            <% } %>
+    </div>
+    <div class="orderHistory">
+        <h2>Beställningshistorik</h2>
+        <% if(typeof orders !=='undefined' && user !==null ) { %>
+            <% orders.forEach(order=> { %>
+                <div class="orders">
+                    <label id="orderNumber"><b>Ordernummer:</b></label>
+                    <%= order.orderId %> <br>
+                        <label id="totalAmount"><b>Totalbelopp:</b></label>
+                        <%= order.orderAmount %>
+                </div>
+                <% }) %>
+                    <% } %>
+
+    </div>

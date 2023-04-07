@@ -1,0 +1,22 @@
+<%- include('./add/header.ejs') %>
+    <% if(typeof alert !='undefined' ) { %>
+        <% alert.forEach(function(error) { %>
+            <div class="alert alert-warning alert-dismissable fade show" role="alert">
+                <%= error.msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <% }) %>
+                <% } %>
+                    <p id="loginTitle">Logga in nedanför!</p>
+                    <form action="/login" method="post" multipart="urlencoded">
+                        <!-- Uses the method post to send the data to the database -->
+                        <label id="usernameLoginLabel">Användarnamn</label>
+                        <input type="text" name="username" id="usernameInput">
+                        <label id="passwordLoginLabel">Lösenord</label>
+                        <input type="password" name="password" id="passwordInput">
+                        <input type="submit" id="btnLogin" value="Logga in">
+                        <a href="./register" id="passwordForget">Har du glömt lösenordet?</a>
+                        <a href="./register">Ny kund? Klicka här för att skapa konto</a>
+                    </form>
